@@ -53,7 +53,64 @@
    <section>
       <h1>Conference Registration Form</h1>
       <p>Required Item (*)</p>
-      
+
+      <!-- Here the form does not need a field set because there is only one that is required. If more than one field set is wanted than using the fieldset tag would creat to sections to the form for diferent purposes. The action tells the broswer and sever where to run the form before sumbitinf and the method tells where the forms data should go. -->
+      <form action="http://www.example.com/cg/register" method="post">
+
+        <!-- For all the follwing label and input pairs each labels' for attribute has a mathcing id in the inputs' opening tag. this is for the control for the user and the later for the programmer. -->
+        <label for="titleBox">Title</label>
+        <input type="text" name="title" id="titleBox" list="titleList"/>
+        <!-- The data list is a list where the user can only select and submit one input data option -->
+        <datalist id="titleList" >
+          <option value="Mr."></option>
+          <option value="Mrs."></option>
+          <option value="Ms."></option>
+          <option value="Prof."></option>
+          <option value="Dr."></option>
+          <option value="Assist. Prof."></option>
+          <option value="Assoc. Prof."></option>
+        </datalist>
+
+        <!-- The required attribute makes it so thhat the user cannot submit their form until the input fields have data in them. -->
+        <label for="fnBox">First Name*</label>
+        <input type="text" name="firstName" id="fnBox" required/>
+
+        <label for="lnBox">Last Name*</label>
+        <input type="text" name="lastName" id="lnBox" required/>
+
+        <label for="addBox">Address*</label>
+        <input type="text" name="adress" id="addBox" required/>
+
+        <label for="groupBox">Company or University</label>
+        <input type="text" name="group" id="groupBox" />
+
+        <label for="mailBox">E-mail*</label>
+        <input type="email" name="email" id="mailBox" required/>
+
+        <!-- The pattern makes it so that only certain characters and the amount of characters are limited and are valid for submition. -->
+        <label for="phoneBox">Phone Number*</label>
+        <input type="tel" name="phone" id="phoneBox" placeholder="(nnn) nnn-nnnn" required pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$"/>
+
+        <label for="idBox">ACGIP Membership Number</label>
+        <input type="text" name="acgipID" id="idBox" placeholder="acgip-nnnnnn"  pattern="^acgip\-\d{6}$"/>
+
+        <!-- The optinos of a selction list are limited to the ones that are presented in a options list the user can begin to type thei own option but here the user must select one of the ones that are offered. -->
+        <label for="regList">Registration Category</label>
+        <select name="registerType" id="regList">
+          <option value="member">ACGIP Member ($695)</option>
+          <option value="nonmember">Non-Member ($795)</option>
+          <option value="student">Student ($310)</option>
+          <option value="poster">Poster ($95)</option>
+          <option value="guest">Guest ($35)</option>
+        </select>
+
+        <!-- the user clicks the input area to submit or continue the for. -->
+        <p>
+          <input type="submit" value="continue" />
+        </p>
+
+      </form>
+
    </section>
    
    <aside>
